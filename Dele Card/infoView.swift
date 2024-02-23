@@ -7,12 +7,28 @@
 
 import SwiftUI
 
-struct infoView: View {
+struct InfoView: View {
+    
+    let text:String
+    let imageName:String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+            .fill(.white)
+            .frame(height: 50)
+            .foregroundColor(.white)
+            .overlay(
+                HStack {
+                    Image(systemName: imageName)
+                        .foregroundColor(.green)
+                    Text(text)
+                })
+            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    infoView()
+    InfoView(text: "+254700107838", imageName: "phone.fill")
+        .previewLayout(.sizeThatFits)
+    
 }
